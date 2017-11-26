@@ -41,35 +41,21 @@ class Numbers {
 
 class Decimal extends Numbers{
 	Numbers d=new Numbers();
-	int binary, octal, decimal=d.decimalnum, hexadecimal, i=0, i2=1, base;
-	int[] rm=new int[99];
+	String binary, octal, hexadecimal;
+	int decimal=d.decimalnum;
 
 	public void convert_decimal(){
-		while(i2<5){
-			if(i2==1)
-				base=2;
-			else if (i2==2)
-				base=8;
-			else if (i2==3)
-				base=10;
-			else if (i2==4)
-				base=16;
-
-			while(decimal!=0){
-		
-				rm[i]=decimal%base;
-				decimal=decimal/base;
-				i++;
-			}
-		i2++;
-		}
+		binary=Integer.toBinaryString(decimal);
+		octal=Integer.toOctalString(decimal);
+		hexadecimal=Integer.toHexString(decimal);
 	}
 
 	public void seter(){
-		System.out.println("Your output is ");
-		for (int i=0; i<=this.i; i++) {
-			System.out.print(rm[i]);
-		}
+		System.out.println("you converted decimal to those: ");
+		System.out.println("Binary = "+binary);
+		System.out.println("Octal = "+octal);
+		System.out.println("Hexadecimal = "+hexadecimal);
+		System.out.println("====================================================");
 	}
 }
 
