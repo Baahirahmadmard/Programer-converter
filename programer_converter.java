@@ -1,12 +1,14 @@
 import java.util.*;
 
 class Numbers {
-	static int binarynum, octalnum, decimalnum, hexadecimalnum;
+	static String binarynum, hexadecimalnum;
+	static int octalnum, decimalnum;
 	Scanner input=new Scanner(System.in);
-
+	int choss;
+	
 	public void geter(){
 
-		int choss;
+		
 	while (true) {
 		
 		System.out.println("what number do you want to convert please indentify: ");
@@ -18,7 +20,7 @@ class Numbers {
 
 		if(choss==1){
 			System.out.println("Enter binary number: ");
-			binarynum=input.nextInt();
+			binarynum=input.next();
 			break;
 		}else if (choss==2) {
 			System.out.println("Enter octal number: ");
@@ -30,12 +32,33 @@ class Numbers {
 			break;
 		}else if (choss==4) {
 			System.out.println("Enter hexadecimal number: ");
-			hexadecimalnum=input.nextInt();
+			hexadecimalnum=input.next();
 			break;
 		}else{
 			System.out.println("wrong choice try again");
 		}
 		}
+	}
+}
+
+class Binary extends Numbers{
+	Numbers d=new Numbers();
+	String octal, hexadecimal;
+	String binary=d.binarynum;
+	int decimal;
+
+	public void convert_binary(){
+		decimal=Integer.parseInt(binary, 2);
+		octal=Integer.toOctalString(decimal);
+		hexadecimal=Long.toHexString(decimal);
+	}
+
+	public void seter(){
+		System.out.println("you converted decimal to those: ");
+		System.out.println("Octal = "+octal);
+		System.out.println("Decimal = "+decimal);
+		System.out.println("Hexadecimal = "+hexadecimal);
+		System.out.println("====================================================");
 	}
 }
 
@@ -61,11 +84,27 @@ class Decimal extends Numbers{
 
 class programer_converter {
 	public static void main(String[] args) {
+
 		Numbers num=new Numbers();
 		num.geter();
-		Decimal dnum=new Decimal();
-		dnum.convert_decimal();
-		dnum.seter();
+		if(num.choss==1){
+			
+			Binary bnum=new Binary();
+			bnum.convert_binary();
+			bnum.seter();
+
+		}else if(num.choss==2){
+
+		}else if(num.choss==3){
+
+			Decimal dnum=new Decimal();
+			dnum.convert_decimal();
+			dnum.seter();
+
+		}else if(num.choss==4){
+
+		}
+		
 	}
 }
 //the end
