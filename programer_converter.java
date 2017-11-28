@@ -3,10 +3,11 @@ import java.util.*;
 class Numbers {
 	static int binarynum, octalnum, decimalnum, hexadecimalnum;
 	Scanner input=new Scanner(System.in);
-
+	int choss;
+	
 	public void geter(){
 
-		int choss;
+		
 	while (true) {
 		
 		System.out.println("what number do you want to convert please indentify: ");
@@ -39,6 +40,26 @@ class Numbers {
 	}
 }
 
+class Binary extends Numbers{
+	Numbers d=new Numbers();
+	String octal, hexadecimal;
+	long binary=d.binarynum, decimal;
+
+	public void convert_binary(){
+		octal=Long.toOctalString(binary);
+		decimal=Long.parseLong(octal, 8);
+		hexadecimal=Long.toHexString(binary);
+	}
+
+	public void seter(){
+		System.out.println("you converted decimal to those: ");
+		System.out.println("Octal = "+octal);
+		System.out.println("Decimal = "+decimal);
+		System.out.println("Hexadecimal = "+hexadecimal);
+		System.out.println("====================================================");
+	}
+}
+
 class Decimal extends Numbers{
 	Numbers d=new Numbers();
 	String binary, octal, hexadecimal;
@@ -61,11 +82,27 @@ class Decimal extends Numbers{
 
 class programer_converter {
 	public static void main(String[] args) {
+
 		Numbers num=new Numbers();
 		num.geter();
-		Decimal dnum=new Decimal();
-		dnum.convert_decimal();
-		dnum.seter();
+		if(num.choss==1){
+			
+			Binary bnum=new Binary();
+			bnum.convert_binary();
+			bnum.seter();
+
+		}else if(num.choss==2){
+
+		}else if(num.choss==3){
+
+			Decimal dnum=new Decimal();
+			dnum.convert_decimal();
+			dnum.seter();
+
+		}else if(num.choss==4){
+
+		}
+		
 	}
 }
 //the end
